@@ -39,6 +39,7 @@ export class AccordionDirective implements AfterContentChecked {
     const index = this.navlinks.indexOf(link);
     if (index !== -1) {
       this.navlinks.splice(index, 1);
+      console.log(this.navlinks);
     }
   }
 
