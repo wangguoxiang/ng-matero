@@ -1,0 +1,31 @@
+{
+  "menu": [
+  {
+    "state": "dashboard",
+    "name": "Dashboard",
+    "type": "link",
+    "icon": "dashboard",
+    "badge": {
+      "color": "red-500",
+      "value": "5"
+    }
+  },
+  {
+    "state": "manager",
+    "name": "用户管理",
+    "type": "link",
+    "icon": "color_lens",
+    "children": [
+      {
+        "state": "",
+        "name": "用户权限",
+        "type": "sub",
+      },
+      {
+        "state": "icons",
+        "name": "Icons",
+        "type": "sub",
+      }
+    ]
+  }]
+}

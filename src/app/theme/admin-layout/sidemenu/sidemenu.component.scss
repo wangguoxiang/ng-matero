@@ -1,0 +1,7 @@
+@import "../../../../styles/_variables";
+
+
+:host {
+  display: block;
+  height: calc(100% - 180px);
+}
