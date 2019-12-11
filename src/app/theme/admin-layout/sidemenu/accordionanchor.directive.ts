@@ -15,5 +15,6 @@ export class AccordionAnchorDirective {
   @HostListener('click', ['$event'])
   onClick() {
     this.navlink.toggle();
+    console.log(this.navlink);
   }
 }
