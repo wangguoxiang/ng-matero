@@ -19,12 +19,11 @@ export class AccordionDirective implements AfterContentChecked {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(e => this.checkOpenLinks());
-
-
   }
 
   addLink(link: AccordionLinkDirective): void {
     this.navlinks.push(link);
+    console.log(this.navlinks);
   }
 
   closeOtherLinks(openLink: AccordionLinkDirective): void {
@@ -44,7 +43,6 @@ export class AccordionDirective implements AfterContentChecked {
 
   checkOpenLinks() {
     this.navlinks.forEach((link: AccordionLinkDirective) => {
-      console.log(link);
       if (link.group) {
         const routeUrl = this.router.url;
         const currentUrl = routeUrl.split('/');

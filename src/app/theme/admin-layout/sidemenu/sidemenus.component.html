@@ -1,25 +1,49 @@
-<div class="matero-sidemenu level-0">
-    <div class="matero-sidemenu-item b-r-1">
-      <div *ngFor="let menuItem of menus" (click)="click(menuItem)">
-        <div class="matero-sidemenu-link b-b-1"
-        *ngIf="menuItem.type === 'sub'"
-        matRipple [matRippleDisabled]="!ripple">
-       <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
-       <span class="menu-name">{{ menuItem.name | slice: 0:7 }}</span>
-       <span class="menu-badge bg-{{ menuItem.badge.color }}" *ngIf="menuItem.badge">
-         {{ menuItem.badge.value }}
-       </span>
-      </div>
-     </div>
-   </div>
-   <div navAccordion class="submenu">
+<div  class="matero-sidemenu level-0">
+    <div navAccordion class="matero-sidemenu-item b-r-1">
       <div navAccordionLink routerLinkActive="active"
-          *ngFor="let childmenuItem of childmenu"
-          [group]="childmenuItem.state">
-            <a class="matero-sidechildmenu-item b-b-1" [routerLink]="['/', childmenuItem.state]"
-                matRipple [matRippleDisabled]="!ripple">
+         *ngFor="let menuItem of menus"
+         (click)="click(menuItem)"
+         [group]="menuItem.state">
+       <div class="matero-sidemenu-link b-b-1"
+        *ngIf="menuItem.type === 'sub'"
+          matRipple [matRippleDisabled]="!ripple">
+        <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+        <span class="menu-name">{{ menuItem.name | slice: 0:7 }}</span>
+        <span class="menu-badge bg-{{ menuItem.badge.color }}" *ngIf="menuItem.badge">
+          {{ menuItem.badge.value }}
+        </span>
+      </div>
+
+      <a class="matero-sidemenu-link b-b-1"
+        *ngIf="menuItem.type === 'link'"
+        [routerLink]="['/', menuItem.state]"
+        matRipple [matRippleDisabled]="!ripple">
+        <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+        <span class="menu-name">{{ menuItem.name }}</span>
+        <span class="menu-badge bg-{{ menuItem.badge.color }}" *ngIf="menuItem.badge">
+          {{ menuItem.badge.value }}
+        </span>
+      </a>
+
+     </div>
+  </div>
+  <div navAccordion class="submenu">
+    <div navAccordionLink routerLinkActive="active" *ngFor="let childmenuItem of childmenu, let i = index" >
+            <a navAccordionToggle class="matero-sidechildmenu-item b-b-1"
+              *ngIf="childmenuItem.type === 'sub' "
+              matRipple [matRippleDisabled]="!ripple">
               <span class="menu-name">{{ childmenuItem.name }}</span>
             </a>
-       </div>
+            <div routerLinkActive="active" *ngFor="let childmenusubItem of childmenuItem.children" >
+              <a *ngIf="childmenusubItem.type === 'link' " class="matero-sidechildmenu-item b-b-1" [routerLink]="['/', childmenu[i].state, childmenusubItem.state]"
+                 matRipple [matRippleDisabled]="!ripple">
+              <span class="menu-name">{{ childmenusubItem.name }}</span>
+              </a>
+            </div>
+            <a class="matero-sidechildmenu-item b-b-1" *ngIf="childmenuItem.type === 'link' " [routerLink]="['/', childmenu[i].state, childmenuItem.state]"
+              matRipple [matRippleDisabled]="!ripple">
+              <span class="menu-name">{{ childmenuItem.name }}</span>
+            </a>
+      </div>
   </div>
 </div>

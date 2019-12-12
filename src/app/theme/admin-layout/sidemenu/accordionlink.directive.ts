@@ -30,7 +30,6 @@ export class AccordionLinkDirective implements OnInit, OnDestroy {
 
   ngOnInit(): any {
     this.nav.addLink(this);
-    console.log(this.nav);
   }
 
   ngOnDestroy(): any {
@@ -39,5 +38,6 @@ export class AccordionLinkDirective implements OnInit, OnDestroy {
 
   toggle(): any {
     this.open = !this.open;
+    console.log(this.open);
   }
 }

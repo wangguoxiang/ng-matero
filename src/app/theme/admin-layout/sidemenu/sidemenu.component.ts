@@ -23,6 +23,5 @@ export class SidemenuComponent {
 
   click(menu: Menu) {
     this.childmenu = menu.children;
-    console.log(this.childmenu);
   }
 }
