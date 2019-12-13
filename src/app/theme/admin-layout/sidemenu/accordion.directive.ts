@@ -23,7 +23,6 @@ export class AccordionDirective implements AfterContentChecked {
 
   addLink(link: AccordionLinkDirective): void {
     this.navlinks.push(link);
-    console.log(this.navlinks);
   }
 
   closeOtherLinks(openLink: AccordionLinkDirective): void {

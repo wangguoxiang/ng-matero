@@ -17,6 +17,10 @@
         color: mat-color($foreground, text);
       }
 
+      ul {
+        padding-inline-start: 0px;
+      }
+
       .matero-sidemenu-item {
         &:hover {
           background: mat-color($background, hover);
@@ -34,6 +38,7 @@
       }
       .submenu{
         background-color: azure;
+        list-style: none;
         min-width: calc( #{$sidenav-width} - #{$sidenav-collapsed-width} );
         width: calc( #{$sidenav-width} - #{$sidenav-collapsed-width} );
 
@@ -53,9 +58,9 @@
 
         .matero-sidechildmenu-item {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           justify-content: center;
-          align-items: left;
+          align-items: center;
           height: 48px;
           padding: 0 16px;
           text-decoration: none;
@@ -90,23 +95,13 @@
     width: $sidenav-width;
     margin: 0;
     padding: 0;
-    list-style: none;
+   
 
     .matero-sidemenu-item {
       display: block;
       width: $sidenav-collapsed-width;
       height: auto;
       padding: 0;
-
-      &.open {
-        > .matero-sidemenu {
-          max-height: 2000px;
-        }
-
-        > .matero-sidemenu-toggle > .menu-caret {
-          transform: rotate(-180deg);
-        }
-      }
 
       .matero-sidemenu-link{
         height: $sidenav-collapsed-width;
@@ -165,7 +160,6 @@
       transition: fast-out-slow(transform);
     }
 
-
     &.submenu {
       flex-direction: column;
       display: flex;
@@ -174,15 +168,54 @@
       max-height: 0;
       padding-top: 0;
       overflow: hidden;
-
+      list-style: none;
+     
       .matero-sidechildmenu-item {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
-        align-items: left;
+        align-items: center;
         height: 48px;
         padding: 0 16px;
         text-decoration: none;
+
+        .menu-badge{
+          display: block;
+          position: absolute;
+          top: 5px;
+          right: 2px;
+        }
+
+        .menu-name,
+        .menu-label,
+        .menu-badge {
+          transition: swift-ease-out(opacity);
+        }
+
+        .menu-label,
+        .menu-badge {
+          @include badge();
+        }
+
+        .menu-badge {
+          border-radius: 10px;
+        }
+
+        .menu-caret {
+          display: block;
+          text-align: center;
+          transition: fast-out-slow(transform);
+        }
+      }
+
+      &.open {
+          > .matero-sidemenu {
+            max-height: 2000px;
+          }
+
+          > .matero-sidemenu-toggle > .menu-caret {
+            transform: rotate(-90deg);
+          }
       }
 
       &.level-0 > li > a > .menu-name {
@@ -211,6 +244,7 @@
           padding-right: 64px;
         }
       }
+     
     }
 
   }
@@ -388,9 +422,9 @@
 
             .matero-sidechildmenu-item {
               display: flex;
-              flex-direction: column;
+              flex-direction: row;
               justify-content: center;
-              align-items: left;
+              align-items: center;
               height: 48px;
               padding: 0 16px;
               text-decoration: none;
