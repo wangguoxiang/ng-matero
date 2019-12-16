@@ -13,6 +13,7 @@ export class SidemenuComponent {
 
   menus = this.menuService.getAll();
   childmenu: ChildrenItem[];
+  mainstate: string;
 
   constructor(private menuService: MenuService) {}
 
@@ -23,6 +24,7 @@ export class SidemenuComponent {
 
   click(menu: Menu) {
     this.childmenu = menu.children;
+    this.mainstate = menu.state;
   }
 
 }

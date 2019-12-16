@@ -23,6 +23,8 @@ import { EasyDialogComponent } from './components/easy-dialog/easy-dialog.compon
 import { EasyTableComponent } from './components/easy-table/easy-table.component';
 import { EasyTableCellComponent } from './components/easy-table/easy-table-cell.component';
 
+import { LoadingComponent } from './components/loading/loading.component';
+
 const THIRD_MODULES = [
   MaterialModule,
   FlexLayoutModule,
@@ -44,6 +46,7 @@ const COMPONENTS = [
   EasyDialogComponent,
   EasyTableComponent,
   EasyTableCellComponent,
+  LoadingComponent,
 ];
 const COMPONENTS_DYNAMIC = [EasyDialogComponent];
 const DIRECTIVES = [];

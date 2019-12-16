@@ -7,3 +7,5 @@ export * from './services/startup.service';
 export * from './services/preloader.service';
 
 export * from './settings';
+
+export * from './states/public-api';

@@ -27,15 +27,15 @@
      </div>
   </div>
   <ul navAccordion  class="submenu level-0">
-    <li navAccordionLink  class="matero-sidechildmenu-item b-b-1" style="min-height: 48px;"
-    routerLinkActive="active" 
-    *ngFor="let childmenuItem of childmenu, let i = index" 
-    matRipple [matRippleDisabled]="!ripple"
-    [group]="childmenuItem.state">
-            <a navAccordionToggle 
-              class="matero-sidemenu-toggle"  
+    <li navAccordionLink  class="matero-sidechildmenu-item b-b-1"
+    style="min-height:48px; height: auto;"
+    routerLinkActive="active"
+    *ngFor="let childmenuItem of childmenu, let i = index"
+    [group]="childmenuItem.state" >
+            <a navAccordionToggle
+              class="matero-sidemenu-toggle m-x-16"
               *ngIf="childmenuItem.type === 'sub' "
-              href="javascript:void(0);">
+              href="javascript:void(0);" matRipple [matRippleDisabled]="!ripple">
               <mat-icon class="menu-icon">{{ childmenuItem.icon }}</mat-icon>
               <span class="menu-name">{{ childmenuItem.name }}</span>
               <span class="menu-label bg-{{ menuItem.label.color }}" *ngIf="childmenuItem.label">
@@ -49,15 +49,14 @@
               <!-- <span class="menu-name">{{ childmenuItem.name }}</span> -->
             </a>
             <ul class="matero-sidesubmenu  childsubmenu level-1" *ngIf="childmenuItem.type === 'sub'" >
-              <li routerLinkActive="active"  class="matero-sidesubchildmenu-item b-b-1"
-              *ngFor="let childmenusubItem of childmenuItem.children">
-                <a  [routerLink]="['/', childmenu[i].state, childmenusubItem.state]"
-                  matRipple [matRippleDisabled]="!ripple">
+              <li routerLinkActive="active"  class="matero-sidesubchildmenu-item b-t-1"
+              *ngFor="let childmenusubItem of childmenuItem.children" matRipple [matRippleDisabled]="!ripple">
+                <a class="matero-sidemenu-subchilditem" [routerLink]="['/', mainstate, childmenusubItem.state]">
                 <span class="menu-name">{{ childmenusubItem.name }}</span>
                 </a>
               </li>
             </ul>
-            <a class="matero-sidechildmenu-item" *ngIf="childmenuItem.type === 'link' " [routerLink]="['/', childmenu[i].state, childmenuItem.state]"
+            <a class="matero-sidemenu-subchildtoggle m-x-16" *ngIf="childmenuItem.type === 'link' " [routerLink]="['/', mainstate, childmenuItem.state]"
               matRipple [matRippleDisabled]="!ripple">
               <span class="menu-name">{{ childmenuItem.name }}</span>
             </a>

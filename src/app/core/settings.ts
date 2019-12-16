@@ -19,3 +19,10 @@ export const defaults: AppSettings = {
   sidenavOpened: true,
   sidenavCollapsed: false,
 };
+
+
+export interface OpsResponse< T = null> {
+  status: number | string
+  message: string
+  meta: T
+}
