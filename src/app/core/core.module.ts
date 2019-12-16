@@ -33,7 +33,6 @@ if (isDev) {
     ],
     providers: [
         DefaultInterceptor,
-
         ...CoreServices,
     ],
 })

@@ -14,6 +14,7 @@ import { MessageTipService } from '../services/message-tip.service';
 const shuntHandler = <T>(store) => (source: Observable<T>) => new Observable<T>((subscriber) => {
     source.subscribe({
         next(value: T) {
+            console.log(value);
             if (value instanceof HttpResponse) {
                 const body = value.body
                 if (body.status === 200) {
@@ -48,10 +49,11 @@ export class ResponseFormatInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
           shuntHandler(this.store),
           map((httpResponse: HttpResponse<any>) => {
-              const body: OpsResponse<any> = httpResponse.body
-              this.store.dispatch(new RequestDone())
+              console.log(httpResponse);
+             // const body: OpsResponse<any> = httpResponse.body
+              this.store.dispatch(new RequestDone());
 
-              return httpResponse
+              return httpResponse;
           }),
           catchError((err) => {
                 this.store.dispatch(new RequestDone())

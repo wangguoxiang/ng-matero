@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,  HttpErrorResponse, } from '@angular/common/http';
 import { Store } from '@ngxs/store';
 import { NzMessageService } from 'ng-zorro-antd';
 import { Observable } from 'rxjs/internal/Observable';
 import { AddRequest } from '../states/loading/loading.store';
 import { EMPTY } from 'rxjs/internal/observable/empty';
+import { of } from 'rxjs';
+import { mergeMap, catchError } from 'rxjs/operators';
 
 const REST_PARAMS = /(:[^/]+)/g;
 
@@ -14,6 +16,7 @@ export class RequestRestInterceptor implements HttpInterceptor {
         private store: Store,
         private messageService: NzMessageService,
     ) {}
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       let realReq = request
       //const matched = request.url.match(REST_PARAMS)
