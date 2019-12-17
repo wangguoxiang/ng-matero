@@ -24,6 +24,7 @@ import { EasyTableComponent } from './components/easy-table/easy-table.component
 import { EasyTableCellComponent } from './components/easy-table/easy-table-cell.component';
 
 import { LoadingComponent } from './components/loading/loading.component';
+import { CaptchaComponent } from './components/captcha/captcha.component';
 
 const THIRD_MODULES = [
   MaterialModule,
@@ -47,6 +48,7 @@ const COMPONENTS = [
   EasyTableComponent,
   EasyTableCellComponent,
   LoadingComponent,
+  CaptchaComponent,
 ];
 const COMPONENTS_DYNAMIC = [EasyDialogComponent];
 const DIRECTIVES = [];

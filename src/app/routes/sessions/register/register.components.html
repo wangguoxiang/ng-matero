@@ -1,0 +1,48 @@
+<div class="signin-container" fxLayout="row">
+  <div class="signin-cover" fxFlex="100" fxFlex.gt-xs="70">
+    <div fxLayout="column" fxLayoutAlign="center center" style="height: 100%;">
+      <img src="assets/images/login.svg" alt="">
+    </div>
+  </div>
+  <div class="signin-content mat-elevation-z12" fxFlex="100" fxFlex.gt-xs="30">
+    <mat-card-title>注册账号
+      <a class="redirect" [routerLink]="['/sigin']">用户登录</a>
+    </mat-card-title>
+
+    <form [formGroup]="userForm" (ngSubmit)="register(userForm.value)">
+      <div class="register-content" fxLayout="column" fxLayoutAlign="start stretch">
+        <mat-form-field class="display-block">
+          <input  placeholder="昵称" type="text" formControlName="name" required matInput>
+          <mat-error *ngIf="userForm.get('name').hasError('required')">{{formErrors.name}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="display-block">
+          <input  placeholder="邮箱" type="text" formControlName="email" required matInput>
+          <mat-error *ngIf="userForm.get('email').hasError('required')">{{formErrors.email}}</mat-error>
+          <mat-error *ngIf="userForm.get('email').hasError('pattern')">{{formErrors.email}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="display-block">
+          <input placeholder="密码" type="password" formControlName="password" required matInput>
+          <mat-error *ngIf="userForm.get('password').hasError('required')">{{formErrors.password}}</mat-error>
+          <mat-error *ngIf="userForm.get('password').hasError('minlength')">{{formErrors.password}}</mat-error>
+          <mat-error *ngIf="userForm.get('password').hasError('maxlength')">{{formErrors.password}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="display-block">
+          <input placeholder="确认密码" type="password" formControlName="passwordConfirm" required matInput>
+          <mat-error *ngIf="userForm.get('passwordConfirm').hasError('required')">{{formErrors.passwordConfirm}}</mat-error>
+          <mat-error *ngIf="userForm.get('passwordConfirm').hasError('minlength')">{{formErrors.passwordConfirm}}</mat-error>
+          <mat-error *ngIf="userForm.get('passwordConfirm').hasError('maxlength')">{{formErrors.passwordConfirm}}</mat-error>
+          <mat-error *ngIf="userForm.get('passwordConfirm').hasError('equalsTo')">{{formErrors.passwordConfirm}}</mat-error>
+        </mat-form-field>
+
+        <div class="m-b-15" fxLayout="row" fxLayoutAlign="left center">
+          <mat-checkbox class="remember-me">我同意
+            <a href="javascript:;">注册协议</a>
+          </mat-checkbox>
+        </div>
+        <button  mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">创建账户</button>
+
+      </div>
+    </form>
+
+  </div>
+</div>

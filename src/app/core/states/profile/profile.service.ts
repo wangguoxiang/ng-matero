@@ -5,7 +5,7 @@ import { map, tap } from 'rxjs/internal/operators';
 import { OpsResponse } from './../../settings';
 import { PasswordUpdater, Profile } from './profile.model';
 import { Store } from '@ngxs/store';
-import { SetProfile } from '../session/session.actions';
+import { SetProfile, ChangeProfile } from '../session/session.actions';
 
 @Injectable()
 export class ProfileService {
@@ -19,6 +19,7 @@ export class ProfileService {
         return this.http.get(ApiAddress.PROFILE).pipe(
             map((res: OpsResponse<Profile>) => res.meta),
             tap(profile => {
+                 console.log(profile);
                 this.store.dispatch(new SetProfile(profile))
             })
         )
@@ -26,7 +27,10 @@ export class ProfileService {
 
     saveProfile(profile) {
         return this.http.put(ApiV2Address.PROFILE, profile).pipe(
-            map((res: OpsResponse<any>) => res),
+            map((res: OpsResponse<Profile>) => res.meta),
+            tap(profile => {
+              this.store.dispatch(new ChangeProfile(profile))
+            })
         )
     }
 

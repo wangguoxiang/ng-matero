@@ -8,7 +8,6 @@ import { SidemenuComponent } from './admin-layout/sidemenu/sidemenu.component';
 import { AccordionAnchorDirective } from './admin-layout/sidemenu/accordionanchor.directive';
 import { AccordionDirective } from './admin-layout/sidemenu/accordion.directive';
 import { AccordionLinkDirective } from './admin-layout/sidemenu/accordionlink.directive';
-import { AccordionOpenDirective }  from './admin-layout/sidemenu/accordionopen.directive';
 import { SidebarNoticeComponent } from './admin-layout/sidebar-notice/sidebar-notice.component';
 import { HeaderComponent } from './admin-layout/header/header.component';
 import { BrandingComponent } from './admin-layout/header/branding.component';
@@ -28,7 +27,6 @@ import { GithubButtonComponent } from './admin-layout/header/github.component';
     AccordionAnchorDirective,
     AccordionDirective,
     AccordionLinkDirective,
-    AccordionOpenDirective,
     SidebarNoticeComponent,
     HeaderComponent,
     BrandingComponent,

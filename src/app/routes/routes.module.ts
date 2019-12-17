@@ -5,6 +5,7 @@ import { RoutesRoutingModule } from './routes-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './sessions/login/login.component';
 import { RegisterComponent } from './sessions/register/register.component';
+import { MainResolveService } from './sessions/auth/main.resolve';
 
 const COMPONENTS = [DashboardComponent, LoginComponent, RegisterComponent];
 const COMPONENTS_DYNAMIC = [];
@@ -12,6 +13,7 @@ const COMPONENTS_DYNAMIC = [];
 @NgModule({
   imports: [SharedModule, RoutesRoutingModule],
   declarations: [...COMPONENTS, ...COMPONENTS_DYNAMIC],
+  providers: [MainResolveService],
   entryComponents: COMPONENTS_DYNAMIC,
 })
 export class RoutesModule {}

@@ -1,3 +1,10 @@
+// {
+//   "/api": {
+//     "target": "http://192.168.3.101:4000",
+//     "secure": false
+//   }
+// }
+
 const PROXY_CONFIG = {
   '/users/**': {
     target: 'https://api.github.com',
@@ -17,6 +24,10 @@ const PROXY_CONFIG = {
       // proxyReq.setHeader('cookie', cookie);
     },
   },
+  "/api": {
+    "target": "http://127.0.0.1:4000",
+    "secure": false
+  }
 };
 
 module.exports = PROXY_CONFIG;

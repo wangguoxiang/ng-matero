@@ -8,10 +8,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './sessions/login/login.component';
 import { RegisterComponent } from './sessions/register/register.component';
 
+import { MainResolveService } from './sessions/auth/main.resolve';
+
 const routes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
+    canActivate: [MainResolveService],
+    canActivateChild: [MainResolveService],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {

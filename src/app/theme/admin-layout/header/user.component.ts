@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from './../../../core/states/profile/profile.service';
+import { Profile } from './../../../core/states/profile/profile.model';
+import { Store } from '@ngxs/store';
+import { map } from 'rxjs/operators';
+
+
 
 @Component({
   selector: 'app-user',
@@ -6,11 +12,11 @@ import { Component } from '@angular/core';
     <a mat-button href="javascript:void(0)" [matMenuTriggerFor]="menu">
       <img
         class="matero-user-avatar r-full align-middle"
-        src="assets/images/avatar.jpg"
+        src={{profile.Avatar}}
         width="24"
         alt="avatar"
       />
-      <span class="align-middle">Zongbin</span>
+      <span class="align-middle">{{profile.Name}}</span>
     </a>
 
     <mat-menu #menu="matMenu">
@@ -29,4 +35,30 @@ import { Component } from '@angular/core';
     </mat-menu>
   `,
 })
-export class UserComponent {}
+export class UserComponent implements OnInit  {
+  profile: Profile;
+
+  constructor( private store: Store) {}
+
+  ngOnInit() {
+    // this.store.select(state => state.session.setProfile).pipe(
+    //   map((profile: Profile) => {console.log(profile); return profile;})
+    //  )
+    // .subscribe( res =>{
+    //   console.log(res);
+    //   this.profile = res;
+    //  });
+      this.store.select(state => state.session.profile).subscribe(
+       (res: Profile) => {
+         this.profile = res;
+       }
+     );
+
+    // this.profiles.loadProfile().subscribe(
+    //   (res) => {
+    //     this.profile = res;
+    //     console.log(this.profile);
+    //   }
+    // );
+  }
+}
