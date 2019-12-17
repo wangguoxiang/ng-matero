@@ -30,6 +30,7 @@ export class RequestRestInterceptor implements HttpInterceptor {
       if (realReq.params.get('isLoading') !== 'false') {
            this.store.dispatch(new AddRequest())
       }
+
       return next.handle(request);
     }
 }

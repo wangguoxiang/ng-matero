@@ -49,8 +49,8 @@ export class ResponseFormatInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
           shuntHandler(this.store),
           map((httpResponse: HttpResponse<any>) => {
-              console.log(httpResponse);
-             // const body: OpsResponse<any> = httpResponse.body
+            //console.log(httpResponse);
+              const body: OpsResponse<any> = httpResponse.body
               this.store.dispatch(new RequestDone());
 
               return httpResponse;

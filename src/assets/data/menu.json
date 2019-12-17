@@ -1,5 +1,7 @@
 {
-  "menu": [
+  "status": 200,
+  "message": "success",
+  "meta": [
     {
       "state": "dashboard",
       "name": "Dashboard",

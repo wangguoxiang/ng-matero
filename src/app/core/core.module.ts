@@ -32,7 +32,7 @@ if (isDev) {
       ...modules
     ],
     providers: [
-        DefaultInterceptor,
+        ...responseInterceptor,
         ...CoreServices,
     ],
 })

@@ -20,7 +20,7 @@ export class StartupService {
         )
         .subscribe(
           (res: any) => {
-            this.menuService.set(res.menu);
+            this.menuService.set(res.meta);
           },
           () => {},
           () => {
