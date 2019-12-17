@@ -1,31 +1,67 @@
 {
-  "menu": [
+  "status": 200,
+  "message": "success",
+  "meta": [
   {
     "state": "dashboard",
-    "name": "Dashboard",
+    "name": "后台主页",
     "type": "link",
     "icon": "dashboard",
     "badge": {
       "color": "red-500",
       "value": "5"
     }
-  },
-  {
-    "state": "manager",
-    "name": "用户管理",
-    "type": "link",
+  },{
+    "state": "category",
+    "name": "商品管理",
+    "type": "sub",
     "icon": "color_lens",
     "children": [
       {
-        "state": "",
-        "name": "用户权限",
-        "type": "sub",
+        "state": "lists",
+        "name": "商品列表",
+        "type": "link"
       },
       {
-        "state": "icons",
-        "name": "Icons",
-        "type": "sub",
+        "state": "settings",
+        "name": "商品设置",
+        "type": "link"
       }
     ]
-  }]
+  },{
+  "state": "order",
+  "name": "订单管理",
+  "type": "sub",
+  "icon": "color_lens",
+  "children": [
+    {
+      "state": "sold",
+      "name": "已售订单",
+      "type": "link"
+    },
+    {
+      "state": "used",
+      "name": "已消费订单",
+      "type": "link"
+    }
+  ]
+  },{
+    "state": "user",
+    "name": "用户管理",
+    "type": "sub",
+    "icon": "color_lens",
+    "children": [
+      {
+        "state": "business",
+        "name": "企业商家",
+        "type": "link"
+      },
+      {
+        "state": "personal",
+        "name": "个人用户",
+        "type": "link"
+      }
+    ]
+    }
+  ]
 }

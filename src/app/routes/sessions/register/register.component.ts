@@ -127,7 +127,7 @@ export class RegisterComponent implements OnInit {
     this.authService.registerSendEmail(data).subscribe((res) => {
         console.log(res);
         if(res.status === 200 ){
-          this.router.navigate(['']);
+          this.router.navigate(['/']);
         }
       }
     );

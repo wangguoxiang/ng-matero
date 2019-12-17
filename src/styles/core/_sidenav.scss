@@ -10,6 +10,7 @@
     .matero-sidemenu {
       scrollbar-width: none; /* firefox */
       -ms-overflow-style: none; /* IE 10+ */
+      font-size: 12px;
       overflow-x: none;
       background-color: azure;
 
@@ -56,6 +57,11 @@
           > a {
             color: mat-color(map-get($theme, accent));
           }
+        }
+
+        .menu-name {
+          display: block;
+          font-size: 12px;
         }
 
         .matero-sidechildmenu-item {
@@ -194,7 +200,7 @@
     .menu-icon {
       width: 18px;
       height: 18px;
-      font-size: 18px;
+      font-size: 12px;
       line-height: 18px;
       transform: scale(1);
 
@@ -202,6 +208,11 @@
         margin-left: 16px;
         margin-right: auto;
       }
+    }
+
+    .menu-name {
+      display: block;
+      font-size: 10px;
     }
 
     .menu-badge{
@@ -250,6 +261,11 @@
         height: 48px;
         padding: 0 16px;
         text-decoration: none;
+
+        .menu-name {
+          display: block;
+          font-size: 10px;
+        }
 
         .menu-badge{
           display: block;
@@ -437,12 +453,17 @@
           padding: 0 16px;
           text-decoration: none;
         }
-
+        
+        .menu-name {
+          display: block;
+          font-size: 10px;
+        }
+        
         .menu-icon {
           width: 18px;
           height: 18px;
-          font-size: 18px;
-          line-height: 18px;
+          font-size: 12px;
+          line-height: 12px;
           transform: scale(1.5);
 
           [dir='rtl'] & {
@@ -466,7 +487,7 @@
 
         .submenu {
           background-color: azure;
-          font-size: 18px;
+          font-size: 12px;
 
             &:hover {
               background:  mat-color($background, hover);

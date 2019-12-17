@@ -7,7 +7,7 @@
         *ngIf="menuItem.type === 'sub'"
           matRipple [matRippleDisabled]="!ripple">
         <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
-        <span class="menu-name">{{ menuItem.name | slice: 0:7 }}</span>
+        <span class="menu-name">{{ menuItem.name | slice: 0:8 }}</span>
         <span class="menu-badge bg-{{ menuItem.badge.color }}" *ngIf="menuItem.badge">
           {{ menuItem.badge.value }}
         </span>
