@@ -24,6 +24,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         this.httpCount = httpCount
         this.cdf.detectChanges()
     })
+    console.log(this);
   }
 
 
