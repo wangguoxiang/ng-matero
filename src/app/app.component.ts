@@ -18,7 +18,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   ngOnInit() {
-    console.log(this);
     this.httpCountSub = this.store.select(state => state.loading.reqCount)
     .subscribe(httpCount => {
         console.log("app load ... %s", httpCount )
