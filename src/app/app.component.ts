@@ -16,6 +16,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private cdf: ChangeDetectorRef
     ) {}
 
+
   ngOnInit() {
     this.httpCountSub = this.store.select(state => state.loading.reqCount)
     .subscribe(httpCount => {
@@ -25,8 +26,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     })
   }
 
+
   ngAfterViewInit() {
     this.preloader.hide();
+    console.log(this);
   }
 
   ngOnDestroy() {
