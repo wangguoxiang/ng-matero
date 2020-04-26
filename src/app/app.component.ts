@@ -29,7 +29,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.preloader.hide();
-    console.log(this);
   }
 
   ngOnDestroy() {
