@@ -24,13 +24,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         this.httpCount = httpCount
         this.cdf.detectChanges()
     })
-    console.log(this);
   }
 
 
   ngAfterViewInit() {
     this.preloader.hide();
-    console.log(this);
   }
 
   ngOnDestroy() {
